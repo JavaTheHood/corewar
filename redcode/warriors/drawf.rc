@@ -1,0 +1,4 @@
+;Dwarf
+add #5 -1
+mov #0 @-2
+jmp -2

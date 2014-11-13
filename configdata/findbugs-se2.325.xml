@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<FindBugsFilter>
+     <Match>
+       <Bug pattern="DM_CONVERT_CASE" />
+     </Match>
+</FindBugsFilter>

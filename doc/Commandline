@@ -1,0 +1,18 @@
+FileMars:
+
+echo dat #1 | java corewar.filter.compiler.Compiler corewar.filte
+r.compiler.RedCodeCompiler > workspace\Corewar\decimalcode\dat1.dc
+
+echo dat #0 | java corewar.filter.compiler.Compiler corewar.filte
+r.compiler.RedCodeCompiler > workspace\Corewar\decimalcode\dat0.dc
+
+corewar.filter.mars.FileMars corewar.filter.mars.Deimos dat0.dc dat1.dc dat0.log
+
+TestMyMars:
+
+java corewar.test.mars.TestMyMars corewar.filter.mars.Deimos work
+space\Corewar\decimalcode\dat0.dclog
+
+Pipeline:
+
+C:\Users\Roman>echo dat #0 | java corewar.filter.compiler.Compiler corewar.filter.compiler.RedCodeCompiler | java corewar.filter.mars.Mars corewar.filter.mars.Deimos

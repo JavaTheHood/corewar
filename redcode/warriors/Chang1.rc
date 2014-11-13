@@ -1,0 +1,8 @@
+spl -2
+spl 4
+add #-16 -3
+mov #0 @-4
+jmp -4
+spl 2
+jmp -1
+mov 0 1

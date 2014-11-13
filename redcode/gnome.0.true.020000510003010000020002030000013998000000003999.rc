@@ -1,0 +1,5 @@
+; Gnome
+add #5 3
+mov #0 @2
+jmp -2
+dat #-1

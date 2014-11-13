@@ -1,0 +1,4 @@
+; Mice
+spl 2
+jmp -1
+mov 0 1

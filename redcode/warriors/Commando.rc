@@ -1,0 +1,6 @@
+;Commando
+mov #0 -1
+jmp -1
+spl -2
+mov 10 113
+spl 112

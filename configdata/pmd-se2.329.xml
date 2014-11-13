@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<ruleset name="SE2 Ruleset"
+    xmlns="http://pmd.sf.net/ruleset/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>
+        Ruleset pertinent to the HM SE2 lab class of R. Schiedermeier in SS2011.
+    </description>
+
+    <!-- reuse most entire rulesets unmodified -->
+    <rule ref="rulesets/unusedcode.xml"/>
+    <rule ref="rulesets/basic.xml"/>
+    <rule ref="rulesets/clone.xml"/>
+    <rule ref="rulesets/codesize.xml"/>
+    <rule ref="rulesets/controversial.xml">
+        <!-- kann sinnvoll sein -->
+        <exclude name="NullAssignment"/>
+        <!-- ok um Scope zu minimieren -->
+        <exclude name="AvoidFinalLocalVariable"/>
+        <!-- ungeeignet fuer equals -->
+        <exclude name="OnlyOneReturn"/>
+        <!-- bleibt an normalem Code haengen -->
+        <exclude name="DataflowAnomalyAnalysis"/>
+        <!-- verhindert package-scoping, aber das ist ok -->
+        <exclude name="DefaultPackage"/>
+    </rule>
+    <rule ref="rulesets/coupling.xml"/>
+    <rule ref="rulesets/design.xml">
+        <!-- nervig -->
+        <exclude name="SimpleDateFormatNeedsLocale"/>
+        <exclude name="UseLocaleWithCaseConversions"/>
+        <!-- eben nicht! -->
+        <exclude name="PositionLiteralsFirstInComparisons"/>
+        <!-- nicht immer sinnvoll -->
+        <exclude name="PreserveStackTrace"/>
+    </rule>
+    <rule ref="rulesets/finalizers.xml"/>
+    <rule ref="rulesets/imports.xml"/>
+    <rule ref="rulesets/naming.xml"/>
+    <!-- zu eng -->
+    <rule ref="rulesets/naming.xml/AbstractNaming"
+        message="Abstract classes should be named 'AbstractXXX', 'BaseXXX', or 'XXXBase'">
+        <properties>
+            <property name="xpath">
+                <value><![CDATA[
+//ClassOrInterfaceDeclaration
+ [@Abstract='true' and @Interface='false']
+ [not (starts-with(@Image,'Abstract')) and not (starts-with(@Image,'Base')) and not (ends-with(@Image,'Base'))]
+                    ]]>
+                </value>
+            </property>
+        </properties>
+    </rule>
+    <!-- zu kurz --> 
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <property name="minimum" value="25"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/optimizations.xml">
+        <!-- kann noetig sein -->
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+    </rule>
+    <rule ref="rulesets/strings.xml"/>
+    <!-- das ist ueberdreht -->
+    <rule ref="rulesets/strings.xml/AvoidDuplicateLiterals">
+        <properties>
+            <property name="skipAnnotations" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/typeresolution.xml"/>
+    
+</ruleset>
+
